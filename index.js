@@ -22,6 +22,10 @@ app.use( express.json() );
 // Rutas
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/events', require('./routes/events'));
+
+app.get('*', ( req, res ) => {
+  res.sendFile( __dirname + '/public/index.html' );
+})
 // app.get('/', (req, res) => {
 //   res.json({
 //     ok: true
